@@ -5,6 +5,9 @@ export default function Home() {
   const {address ,connectWallet} = useWeb3();
   return (
     <Wrapper>
+      {address ? 
+        <h2>{address}</h2>
+      : (
         <WalletConnect>
           <Button onClick={() => {connectWallet('injected')}}>Connect Wallet</Button>
           <Details>
@@ -12,6 +15,7 @@ export default function Home() {
             <br />able to use this app
           </Details>
         </WalletConnect>
+      )}
     </Wrapper>
   )
 }
