@@ -5,7 +5,13 @@ export default function Home() {
   const {address ,connectWallet} = useWeb3();
   return (
     <Wrapper>
-        <button onClick={() => {connectWallet('injected')}}>Connect Wallet</button>
+        <WalletConnect>
+          <Button onClick={() => {connectWallet('injected')}}>Connect Wallet</Button>
+          <Details>
+            You need Metamask to be
+            <br />able to use this app
+          </Details>
+        </WalletConnect>
     </Wrapper>
   )
 }
@@ -16,4 +22,31 @@ const Wrapper = styled.div`
     color:white;
     display:grid;
     place-items:center;
-`
+`;
+const WalletConnect = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+`;
+const Button = styled.button`
+    border:1px solid #282b2f;
+    padding:0.8rem;
+    font-size:1.3rem;
+    font-weight:500;
+    border-radius:.4rem;
+    background-color:#3773f3;
+    color:#000;
+    transition : all .3s;
+    &:hover{
+      cursor:pointer;
+    }
+`;
+
+const Details = styled.div` 
+    font-size:1.2rem;
+    text-align:center;
+    margin-top:1rem;
+    font-weight:500;
+    color:#282b2f;
+`;
