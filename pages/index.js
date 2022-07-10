@@ -24,7 +24,7 @@ export default function Home() {
 const Wrapper = styled.div`
     height:100vh;
     max-width:100vw;
-    background-color:#0a0b0d;
+    background-color:#0a0b0d !important;
     color:white;
     display:grid;
     place-items:center;

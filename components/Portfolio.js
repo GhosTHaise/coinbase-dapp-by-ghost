@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import {BsThreeDotsVertical} from "react-icons/bs"
+import {coins} from "../static/coins"
+import Coin from './Coin'
 
 const Portfolio = () => {
   return (
@@ -8,6 +11,28 @@ const Portfolio = () => {
             <TableItem>
                 <Title>Assets</Title>
             </TableItem>
+            <Divider />
+            <Table >
+                <TableItem>
+                    <TableRow>
+                        <div style={{flex:3}}>Name</div>
+                        <div style={{flex:2}}>Balance</div>
+                        <div style={{flex:2}}>Price</div>
+                        <div style={{flex:2}}>Allocation</div>
+                        <div style={{flex:0}}><BsThreeDotsVertical /></div>
+                    </TableRow>
+                </TableItem>
+                <Divider />
+                <div>
+                    {coins.map(coin => (
+                        <div>
+                            <Coin coin={coin} />
+                            {/* <h2>{coin.name}</h2> */}
+                            <Divider/>
+                        </div>
+                    ))}
+                </div>
+            </Table>
         </PortfolioTable>
     </Wrapper>
   )
@@ -18,13 +43,13 @@ export default Portfolio
 
 const Wrapper = styled.div`
     flex:1;
-    diplay:flex;
+    display:flex;
     justify-content:center;
 `;
 
 const Content = styled.div`
     width : 100%;
-    max-width : 100px;
+    max-width : 1000px;
     padding:2rem 1rem;  
 `;
 const PortfolioTable = styled.div`
