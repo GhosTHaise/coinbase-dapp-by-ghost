@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from "styled-components"
 import Image from 'next/image'
 import { navItems } from '../static/navItems'
 import CoinBaseLogo from "../assets/cb-logo.png"
 
 const Sidebar = () => {
+  const [activeIcon,setActiceIcon] = useState(navItems[0].title);
+  const VIdeo = "1:27:05";
   return (
     <Wrapper>
         <LogoContainer>
@@ -14,10 +16,9 @@ const Sidebar = () => {
         </LogoContainer>
         <NavItemContainer>
             {navItems.map((item,index) => (
-                <NavItem index={index}>
-                    <NavIcon>
+                <NavItem index={index} onClick={() => setActiceIcon(item.title)}>
+                    <NavIcon style={{color : item.title == activeIcon && "#3773f5"}}>
                         {item.icon}
-                       
                     </NavIcon>
                     <NavTitle>
                         {item.title}

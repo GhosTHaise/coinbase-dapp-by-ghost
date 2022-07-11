@@ -8,7 +8,7 @@ const Dashboard = ({address}) => {
     <Wrapper>
       <Sidebar />
       <MainContainer>
-        <Header />
+        <Header walletAddress={address}  />
         <Main />
       </MainContainer>
     </Wrapper>
@@ -20,7 +20,7 @@ export default Dashboard
 const Wrapper = styled.div`
     display:flex;
     min-height :100vh;
-    height-auto;
+    height:auto;
     width:100vw;
     background-color:"#0a0b0d";
     color:"white";
