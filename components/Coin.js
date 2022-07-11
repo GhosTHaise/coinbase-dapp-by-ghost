@@ -17,6 +17,32 @@ const Coin = ({coin}) => {
                     </div>
                 </NameCol>
             </div>
+            <div style={{flex : 2}}>
+                <Primary>
+                    {`$`}
+                    {coin.balanceUsd}
+                </Primary>
+                <Secondary>
+                    {coin.balanceCoin}{` `}
+                    {coin.sign}
+                </Secondary>
+            </div>
+            <div style={{flex : 1}}>
+                <Primary>
+                    {`$`}
+                    {coin.priceUsd}
+                </Primary>
+                <div style={{color : coin.change < 0 ? "#f0615d" : "#26ad75"}}>
+                    {coin.change > 0 && '+'}
+                    {`${coin.change}$`}
+                </div>
+            </div>
+            <div style={{flex: 1}}>
+                {coin.allocation}%
+            </div>
+            <div style={{flex : 0}}>
+                <BsThreeDotsVertical />
+            </div>
         </div>
     </Wrapper>
   )

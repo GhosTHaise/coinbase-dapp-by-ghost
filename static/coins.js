@@ -18,7 +18,7 @@ export const coins = [
   },
   {
     name: 'Solana',
-    sign: 'CRV',
+    sign: 'SOL',
     logo: solLogo,
     balanceUsd: 120.2,
     balanceCoin: 6.35667736,
