@@ -19,7 +19,8 @@ export default Dashboard
 
 const Wrapper = styled.div`
     display:flex;
-    height :100vh;
+    min-height :100vh;
+    height-auto;
     width:100vw;
     background-color:"#0a0b0d";
     color:"white";

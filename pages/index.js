@@ -22,7 +22,7 @@ export default function Home() {
   )
 }
 const Wrapper = styled.div`
-    height:100vh;
+    min-height:100vh;
     max-width:100vw;
     background-color:#0a0b0d !important;
     color:white;

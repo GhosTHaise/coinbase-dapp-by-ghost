@@ -12,6 +12,19 @@ const Sidebar = () => {
                 <Image  src={CoinBaseLogo} alt="Coinbase Logo ..." />
             </Logo>
         </LogoContainer>
+        <NavItemContainer>
+            {navItems.map((item,index) => (
+                <NavItem index={index}>
+                    <NavIcon>
+                        {item.icon}
+                       
+                    </NavIcon>
+                    <NavTitle>
+                        {item.title}
+                    </NavTitle>
+                </NavItem>
+            ))}
+        </NavItemContainer>
     </Wrapper>
   )
 }
@@ -19,7 +32,8 @@ const Sidebar = () => {
 export default Sidebar
 
 const Wrapper = styled.div`
-    height: 100vh;
+    min-height: 100vh;
+    height:auto;
     border-right : 1px solid #282b2f; 
     width: calc(22rem - 16px - 16px);
     padding : 0 1rem;
@@ -38,7 +52,7 @@ const Logo = styled.div`
 
 const NavItemContainer = styled.div`
     margin-top:3rem;
-    
+    transition:all .1s ;
     &:hover{
         cursor:pointer;
     }
@@ -51,7 +65,7 @@ const NavItem = styled.div`
     border-radius:.5rem;
     margin-bottom:1.5rem;
     height:4rem;
-
+    transition:all .1s ;
     &:hover {
         background-color:#141519;
     }
@@ -66,3 +80,5 @@ const NavIcon = styled.div`
     display:grid;
     place-items:center;
 `;
+
+const NavTitle = styled.div``;
