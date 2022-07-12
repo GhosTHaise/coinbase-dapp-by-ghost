@@ -18,6 +18,10 @@ const Wrapper = styled.div`
     display:flex;
     max-height:calc(100vh - 64px);
     overflow:scroll;
+    overflow-x:hidden;
+    ::-webkit-scrollbar{
+        display:none;
+    }
     & div {
         border-radius:.4rem;
     }
