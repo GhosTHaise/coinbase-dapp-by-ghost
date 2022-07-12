@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     ::-webkit-scrollbar{
         display:none;
     }
+    scrollbar-width:none;
     & div {
         border-radius:.4rem;
     }
