@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from 'styled-components'
 import {BsThreeDotsVertical} from "react-icons/bs"
 import {coins} from "../static/coins"
@@ -6,14 +6,19 @@ import Coin from './Coin'
 import BalanceChart from './BalanceChart'
 
 const Portfolio = () => {
+    const [sanityTokens,setSanityTokens] = useState([]);
     useEffect(()=>{
         const getCoins = async() => {
             try{
-                const coins = await fetch("https://kkrsj98b.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20'coins'%5D%0A%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D");
+                const coins = await  fetch("https://kkrsj98b.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20'coins'%5D%0A%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D");
+                const tempSanityTokens = await coins.json();
+                setSanityTokens(tempSanityTokens.result);
+                console.log(sanityTokens);
             }catch(e){
                 console.log("Erreur : "+e);
             }
         }
+        getCoins();
     },[])
   return (
     <Wrapper>
