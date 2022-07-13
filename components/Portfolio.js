@@ -7,6 +7,7 @@ import BalanceChart from './BalanceChart'
 
 const Portfolio = () => {
     const [sanityTokens,setSanityTokens] = useState([]);
+    /* video => 1:49:31 */
     useEffect(()=>{
         const getCoins = async() => {
             try{
@@ -18,7 +19,7 @@ const Portfolio = () => {
                 console.log("Erreur : "+e);
             }
         }
-        getCoins();
+        return getCoins();
     },[])
   return (
     <Wrapper>
