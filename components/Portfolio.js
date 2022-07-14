@@ -4,6 +4,11 @@ import {BsThreeDotsVertical} from "react-icons/bs"
 import {coins} from "../static/coins"
 import Coin from './Coin'
 import BalanceChart from './BalanceChart'
+import {ethers} from "ethers"
+import {ThirdwebSDK} from "@3rdweb/sdk"
+
+const sdk = new ThirdwebSDK(new ethers.Wallet(process.env.NEXT_PUBLIC_MEATAMASK_KEY,
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/")))
 
 const Portfolio = () => {
     const [sanityTokens,setSanityTokens] = useState([]);
