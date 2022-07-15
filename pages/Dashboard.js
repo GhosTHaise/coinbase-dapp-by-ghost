@@ -11,7 +11,7 @@ const sdk = new ThirdwebSDK(new ethers.Wallet(process.env.NEXT_PUBLIC_MEATAMASK_
 
 const Dashboard = ({address}) => {
 
-  const [sanityTokens,setSanityTokens] = useState([]);
+    const [sanityTokens,setSanityTokens] = useState([]);
     const [thirdWebTokens,setThirdWebTokens] = useState([])
     /* video => 1:49:31 */
     useEffect(()=>{
@@ -20,7 +20,7 @@ const Dashboard = ({address}) => {
                 const sanityTokens = (await coins.json()).result;
                 setSanityTokens(sanityTokens);
                 
-                setThirdWebTokens(sanityTokens.map(token => console.log(sdk.getTokenModule(token.contractAddress)))) 
+                setThirdWebTokens(sanityTokens.map(token => sdk.getTokenModule(token.contractAddress))) 
            
         }
         getsanityTokens();
@@ -31,7 +31,7 @@ const Dashboard = ({address}) => {
       <Sidebar />
       <MainContainer>
         <Header sanityTokens={sanityTokens} thirdWebTokens={thirdWebTokens} walletAddress={address}  />
-        <Main sanityTokens={sanityTokens} thirdWebTokens={thirdWebTokens} />
+        <Main thirdWebTokens={thirdWebTokens} sanityTokens={sanityTokens}  walletAddress={address} />
       </MainContainer>
     </Wrapper>
   )
