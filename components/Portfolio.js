@@ -8,23 +8,25 @@ import {ethers} from "ethers"
 import {ThirdwebSDK} from "@3rdweb/sdk"
 
 const sdk = new ThirdwebSDK(new ethers.Wallet(process.env.NEXT_PUBLIC_MEATAMASK_KEY,
-    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/")))
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161")))
 
 const Portfolio = () => {
     const [sanityTokens,setSanityTokens] = useState([]);
+    const [thirdWebTokens,setThirdWebTokens] = useState([])
     /* video => 1:49:31 */
     useEffect(()=>{
-        const getCoins = async() => {
+        const getsanityTokens = async() => {
             try{
                 const coins = await  fetch("https://kkrsj98b.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20'coins'%5D%0A%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D");
-                const tempSanityTokens = await coins.json();
-                setSanityTokens(tempSanityTokens.result);
-                console.log(sanityTokens);
+                const sanityTokens = await coins.json().result;
+                setSanityTokens(sanityTokens);
+                
+                sanityTokens.map(token => console.log(token.contractAddress))
             }catch(e){
-                console.log("Erreur : "+e);
+                console.log("error : "+e)
             }
         }
-        return getCoins();
+        getsanityTokens();
     },[])
   return (
     <Wrapper>
