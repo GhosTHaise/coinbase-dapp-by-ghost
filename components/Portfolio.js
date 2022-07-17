@@ -20,16 +20,16 @@ const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
              const totalBalance = await Promise.all(
                  thirdWebTokens.map(async token=>{
                      const balance = await token.balanceOf(walletAddress)
+                     console.log(balance)
                      return Number(balance.displayValue) * tokenToUsd[token.address];
                  })
              )
-             //console.log(totalBalance);
              setWalletBalance(totalBalance.reduce((acc,curr) => acc + curr ,0))
         }
-        calculateTotalBalance();
-    },[]);
+         calculateTotalBalance() ;
+    },[thirdWebTokens]);
     /* console.log(tokenToUsd) */
-    console.log(walletBalance)
+    console.log(walletBalance,"wb")
     return (
     <Wrapper>
         <Content>
@@ -38,9 +38,7 @@ const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
                     <Balance>
                         <BalanceTitle>Portfolio Balance</BalanceTitle>
                         <BalanceValue>
-                            {`$`}
-                            {/* {walletBalanace.toLocaleString()} */}
-                            46,000
+                            ${Number(walletBalance.toFixed(2)).toLocaleString()}
                         </BalanceValue>
                     </Balance>
                 </div>
