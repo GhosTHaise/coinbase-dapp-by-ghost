@@ -6,8 +6,9 @@ import Coin from './Coin'
 import BalanceChart from './BalanceChart'
 
 const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
-    console.log(sanityTokens,"snt")
-  thirdWebTokens[0].balanceOf(walletAddress).then(balance => console.log(Number(balance.displayValue)))
+    /* console.log(sanityTokens,"snt")
+    console.log(thirdWebTokens) */
+    thirdWebTokens[2].balanceOf(walletAddress).then(balance => console.log(Number(balance.displayValue)))
   return (
     <Wrapper>
         <Content>
