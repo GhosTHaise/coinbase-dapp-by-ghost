@@ -8,8 +8,13 @@ import BalanceChart from './BalanceChart'
 const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
     /* console.log(sanityTokens,"snt")
     console.log(thirdWebTokens) */
-    thirdWebTokens[2].balanceOf(walletAddress).then(balance => console.log(Number(balance.displayValue)))
-  return (
+    //thirdWebTokens[2].balanceOf(walletAddress).then(balance => console.log(Number(balance.displayValue)))
+    const tokenToUsd = {};
+    for(let token of sanityTokens){
+        tokenToUsd[token.contractAddress] = Number(token.usdPrice) ;
+    }
+    console.log(tokenToUsd)
+    return (
     <Wrapper>
         <Content>
             <Chart>
