@@ -6,6 +6,7 @@ import Coin from './Coin'
 import BalanceChart from './BalanceChart'
 
 const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
+    const [walletBalance,setWalletBalance] = useState(0);
     /* console.log(sanityTokens,"snt")
     console.log(thirdWebTokens) */
     //thirdWebTokens[2].balanceOf(walletAddress).then(balance => console.log(Number(balance.displayValue)))
@@ -13,7 +14,22 @@ const Portfolio = ({walletAddress,sanityTokens,thirdWebTokens}) => {
     for(let token of sanityTokens){
         tokenToUsd[token.contractAddress] = Number(token.usdPrice) ;
     }
-    console.log(tokenToUsd)
+    
+    useEffect(()=>{
+        const calculateTotalBalance = async() => {
+             const totalBalance = await Promise.all(
+                 thirdWebTokens.map(async token=>{
+                     const balance = await token.balanceOf(walletAddress)
+                     return Number(balance.displayValue) * tokenToUsd[token.address];
+                 })
+             )
+             //console.log(totalBalance);
+             setWalletBalance(totalBalance.reduce((acc,curr) => acc + curr ,0))
+        }
+        calculateTotalBalance();
+    },[]);
+    /* console.log(tokenToUsd) */
+    console.log(walletBalance)
     return (
     <Wrapper>
         <Content>
