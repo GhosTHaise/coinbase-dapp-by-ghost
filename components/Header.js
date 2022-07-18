@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
 /* installation necessaire from npm */
-import {usrRooter} from 'next-rooter'
+import {usrRooter} from 'next/router'
 import TransfertModal from './Modal/TransfertModal'
 import Modal from 'react-modal'
+
+Modal.setAppElement("#__next")
 
 const Header = ({walletAddress}) => {
   return (
