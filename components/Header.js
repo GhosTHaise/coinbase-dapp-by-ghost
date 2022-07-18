@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from "styled-components"
+/* installation necessaire from npm */
+import {usrRooter} from 'next-rooter'
+import TransfertModal from './Modal/TransfertModal'
+import Modal from 'react-modal'
+
 const Header = ({walletAddress}) => {
   return (
     <Wrapper>
