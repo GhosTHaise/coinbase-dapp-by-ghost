@@ -9,7 +9,7 @@ const TransfertModal = () => {
     </Wrapper>
   )
 }
-const Wrapper = div`
+const Wrapper = styled.div`
     color:black
 `;
 
