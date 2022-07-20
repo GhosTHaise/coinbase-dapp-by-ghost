@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
 /* installation necessaire from npm */
-import {usrRooter} from 'next/router'
+import {useRouter} from 'next/router'
 import TransfertModal from './Modal/TransfertModal'
 import Modal from 'react-modal'
+import Link from 'next/link'
 
 Modal.setAppElement("#__next")
 
 const Header = ({walletAddress}) => {
+  const router = useRouter();
   return (
     <Wrapper>
         <Title>Assets</Title>
@@ -19,10 +21,15 @@ const Header = ({walletAddress}) => {
             <Button style={{backgroundColor:'#3773f5',color:"#000"}}>
                 Buy / Sell
             </Button>
-            <Button>
-                Send / Receive
-            </Button>
+            <Link href={`/?transfert=1`}>
+                <Button>
+                    Send / Receive
+                </Button>
+            </Link>
         </ButtonsContainer>
+        <Modal isOpen={!!router.query.transfert} onRequestClose={()=> router.push('/')}>
+
+        </Modal>
     </Wrapper>
   )
 }
