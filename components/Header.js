@@ -10,7 +10,8 @@ Modal.setAppElement("#__next")
 
 const Header = ({walletAddress}) => {
   const router = useRouter();
-    //2:26:50
+  
+
   const customStyled = {
       content : {
           top: "50%",
