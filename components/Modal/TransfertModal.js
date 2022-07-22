@@ -3,13 +3,23 @@ import styled from 'styled-components'
 
 const TransfertModal = () => {
   const [action,setAction] = useState('send');
-    //2:26:50
+    //2:33
    const selectedStyle = {
         color: '#3773f5'
    }
 
    const unselectedStyle = {
-        border : "1px solid #282b2f "
+        border : "1px solid #282b2f"
+   }
+   const selectedModal = (option) => {
+      switch(option){
+          case "send":
+            return <h2>send</h2>
+          case "receive":
+            return <h2>receive</h2>
+          default:
+            return <h2>send</h2>    
+      }
    }
   return (
     <Wrapper> 
@@ -21,6 +31,9 @@ const TransfertModal = () => {
               <p>Receive</p>
           </Option>
         </Selector>
+        <Modalmain>
+            {selectedModal(action)}
+        </Modalmain>
     </Wrapper>
   )
 }
@@ -50,6 +63,10 @@ const Option = styled.div`
       cursor:pointer;
       background-color:#111214;
     }
+`;
+const Modalmain = styled.div`
+    padding: 1rem;
+    diplay:flex;
 `;
 
 export default TransfertModal
