@@ -64,5 +64,76 @@ const Warning = styled.div`
 const Divider = styled.div`
     border-bottom:1px dolid #282b2f;
 `;
+const Row = styled.div`
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color : #8a919e;
+    padding:1rem 0;
+    font-size:1.2rem;
+`;
+const FieldName = styled.div`
+    flex.0.5;
+    padding-left:2rem;
+`;
+const Icon = styled.div`
+    margin-right:1rem;
+    height:1.8rem;
+    width:1.8rem;
+    height:1.8rem;
+    border-radius:50%;
+    overflow:hidden;
+    display:grid:
+    place-items:center;
+    
+    & > img {
+        height:120%;
+        width:120%;
+        object-fit:cover;
+    }
+`;
+const Recipient = styled.div`
+    flex:1;
+    border:none;
+    background:none;
+    outline:none;
+    color:white;
+    font-size:1.2rem;
+    text-wrap:wrap;
+    margin-right:0.5rem;
+`;
+const CoinSelected = styled.div`
+    display:flex;
+    flex:1.3rem;
+    height:100%;
+
+    &:hover {
+        cursor:pointer;
+    }
+`;
+const CoinName = styled.div`
+    flex:1;
+    border:none;
+    background:none;
+    outline:none;
+    color:white;
+    font-size:1.2rem;
+    text-wrap:wrap;
+    margin-right:.5rem
+`;
+const Continue = styled.button`
+    color:white;
+    width:100%;
+    background-color:#3773f5;
+    padding:1rem;
+    text-align:center;
+    border-radius:.4rem;
+    font-size:1.2rem;
+
+    &:hover{
+        cursor:pointer;
+        background-color:#4a80f6;
+    }
+`;
 
 export default Transfert
