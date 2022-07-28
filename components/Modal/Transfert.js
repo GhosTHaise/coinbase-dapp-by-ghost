@@ -1,13 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 const Transfert = () => {
+  const [amount,setAmount] = useState(); 
   return (
     <Wrapper>
         <Amount>
             <FlexInputContainer>
-                <FlexInput placeholder='0' type="number" />
+                <FlexInput onChange={ e => setAmount(e.target.value)} placeholder='0' type="number" value={amount} />
+                <span>ETH</span>
             </FlexInputContainer>
-        </Amount>
+            <Warning style={{color: amount && "#0a0b0d"}}>
+                Amount is a requred field
+            </Warning>
+        </Amount> 
     </Wrapper>
   )
 }
@@ -55,6 +60,9 @@ const Warning = styled.div`
     padding:1rem 0 2rem 0;
     text-align:  center;
     color:#8a919e;
+`;
+const Divider = styled.div`
+    border-bottom:1px dolid #282b2f;
 `;
 
 export default Transfert
