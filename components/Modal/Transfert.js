@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
+import {FaWallet} from "react-icons/fa"
+
 const Transfert = () => {
   const [amount,setAmount] = useState(); 
   return (
@@ -13,6 +15,14 @@ const Transfert = () => {
                 Amount is a requred field
             </Warning>
         </Amount> 
+        <TransfertForm>
+            <Row>
+                <FieldName>TO</FieldName>
+                <Icon>
+                     <FaWallet />
+                </Icon>
+            </Row>
+        </TransfertForm>
     </Wrapper>
   )
 }
@@ -28,6 +38,12 @@ const Amount = styled.div`
     display:flex;
     flex-direction:column;
 `;  
+
+const TransfertForm = styled.div`
+    border:1px solid #282b2f;
+    border-radius:.4rem;
+`;
+
 const FlexInputContainer = styled.div`
     flex:1;
     display:flex;
