@@ -12,7 +12,7 @@ const Transfert = () => {
                 <span>ETH</span>
             </FlexInputContainer>
             <Warning style={{color: amount && "#0a0b0d"}}>
-                Amount is a requred field
+                Amount is a requred field 
             </Warning>
         </Amount> 
         <TransfertForm>
