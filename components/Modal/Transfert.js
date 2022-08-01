@@ -42,7 +42,11 @@ const Transfert = () => {
             <Continue>
                 Continue
             </Continue>
-            </Row>
+        </Row>
+        <Row>
+            <BalanceTitle>ETH Balance</BalanceTitle>
+            <Balance>0.00</Balance>
+        </Row>
     </Wrapper>
   )
 }
@@ -179,5 +183,9 @@ const Continue = styled.button`
         background-color:#4a80f6;
     }
 `;
+const BalanceTitle = styled.div`
+
+`;
+const Balance = styled.div``;
 
 export default Transfert
