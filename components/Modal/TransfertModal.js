@@ -39,7 +39,7 @@ const TransfertModal = () => {
   )
 }
 const Wrapper = styled.div`
-    color:White;
+    color:white;
     height:35rem;
     width:27rem;
     border: 1px solid #282b2f;
@@ -60,6 +60,7 @@ const Option = styled.div`
     font-size:1.2rem;
     font-weight:600;
     transition: all .3s;
+    
     &:hover{
       cursor:pointer;
       background-color:#111214;
@@ -67,7 +68,7 @@ const Option = styled.div`
 `;
 const Modalmain = styled.div`
     padding: 1rem;
-    diplay:flex;
+    flex:1;
 `;
 
 export default TransfertModal

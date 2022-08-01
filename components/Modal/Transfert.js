@@ -17,31 +17,51 @@ const Transfert = () => {
         </Amount> 
         <TransfertForm>
             <Row>
-                <FieldName>TO</FieldName>
+                <FieldName>To</FieldName>
                 <Icon>
                      <FaWallet />
                 </Icon>
+                <Recipient 
+                    placeholder='Address'
+                />
+            </Row>
+            <Divider />
+            <Row>
+                <FieldName>
+                    Pay with
+                </FieldName>
+                <CoinSelectList>
+                    <icon>
+                        <FaWallet />
+                    </icon>
+                    <CoinName>Ethereum</CoinName>
+                </CoinSelectList>
             </Row>
         </TransfertForm>
+        <Row>
+            <Continue>
+                Continue
+            </Continue>
+            </Row>
     </Wrapper>
   )
 }
 const Wrapper = styled.div`
-    display:flex;
-    flex-direction:column;
-    height:100%;
-    flex:1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
 `;
 
 const Amount = styled.div`
-    flex:1;
-    display:flex;
-    flex-direction:column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 `;  
 
 const TransfertForm = styled.div`
     border:1px solid #282b2f;
-    border-radius:.4rem;
+    border-radius: 0.4rem;
 `;
 
 const FlexInputContainer = styled.div`
@@ -69,8 +89,9 @@ const FlexInput = styled.input`
     color:#3773f5;
 
     &::-webkit-outer-spin-button,
-    ::-webkit-inner-spin-button,
-    -webkit-appearence:none;
+    ::-webkit-inner-spin-button{
+        -webkit-appearence:none;
+    }
 `;
 const Warning = styled.div`
     padding:1rem 0 2rem 0;
@@ -78,18 +99,19 @@ const Warning = styled.div`
     color:#8a919e;
 `;
 const Divider = styled.div`
-    border-bottom:1px dolid #282b2f;
+    border-bottom:1px solid #282b2f;
 `;
 const Row = styled.div`
-    display:flex;
-    align-items:center;
+    width:100%;
+    display: flex;
+    align-items: center;
     justify-content:space-between;
     color : #8a919e;
     padding:1rem 0;
     font-size:1.2rem;
 `;
 const FieldName = styled.div`
-    flex.0.5;
+    flex:.5;
     padding-left:2rem;
 `;
 const Icon = styled.div`
@@ -99,7 +121,7 @@ const Icon = styled.div`
     height:1.8rem;
     border-radius:50%;
     overflow:hidden;
-    display:grid:
+    display:grid;
     place-items:center;
     
     & > img {
@@ -108,19 +130,22 @@ const Icon = styled.div`
         object-fit:cover;
     }
 `;
-const Recipient = styled.div`
-    flex:1;
-    border:none;
-    background:none;
-    outline:none;
-    color:white;
-    font-size:1.2rem;
-    text-wrap:wrap;
-    margin-right:0.5rem;
+const Recipient = styled.input`
+    width:99%;   
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    text-wrap: wrap;
+    margin-right: 0.5rem;
 `;
-const CoinSelected = styled.div`
+
+
+const CoinSelectList = styled.div`
     display:flex;
-    flex:1.3rem;
+    flex:1.2;
     height:100%;
 
     &:hover {
@@ -128,7 +153,9 @@ const CoinSelected = styled.div`
     }
 `;
 const CoinName = styled.div`
+    width:90%;
     flex:1;
+    padding-left:1.7rem;
     border:none;
     background:none;
     outline:none;
@@ -137,6 +164,7 @@ const CoinName = styled.div`
     text-wrap:wrap;
     margin-right:.5rem
 `;
+ 
 const Continue = styled.button`
     color:white;
     width:100%;
@@ -145,7 +173,7 @@ const Continue = styled.button`
     text-align:center;
     border-radius:.4rem;
     font-size:1.2rem;
-
+    transition: all .3s; 
     &:hover{
         cursor:pointer;
         background-color:#4a80f6;
