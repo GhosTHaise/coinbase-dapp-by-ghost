@@ -2,8 +2,9 @@ import React,{useState} from 'react'
 import styled from 'styled-components'
 import Transfert from './Transfert';
 
-const TransfertModal = () => {
+const TransfertModal = ({sanityTokens}) => {
   const [action,setAction] = useState('send');
+  const [selectedToken,setSelectedToken] = useState(sanityTokens[0])  
     //2:33
    const selectedStyle = {
         color: '#3773f5'
