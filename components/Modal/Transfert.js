@@ -14,6 +14,7 @@ const Transfert = ({
   const [amount,setAmount] = useState(); 
   const [recipient,setRecipient] = useState('');
   const [imageUrl,setImageUrl] = useState(null);
+  const [activeThirdWebToken,setActiveThirdWebToken] = useState();
 
   useEffect( _ =>{
     console.log("new",selectedToken);
