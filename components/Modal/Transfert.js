@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import {FaWallet} from "react-icons/fa"
 
+import { client } from '../../lib/Sanity'
+import ImageUrlBuilder  from '@sanity/image-url'
+
 const Transfert = ({ 
     selectedToken ,
     setAction,
@@ -10,10 +13,15 @@ const Transfert = ({
     ) => {
   const [amount,setAmount] = useState(); 
   const [recipient,setRecipient] = useState('');
+  const [imageUrl,setImageUrl] = useState(null);
 
   useEffect( _ =>{
     console.log("new",selectedToken);
-  },[])
+    const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
+    console.log(url);
+    setImageUrl(url);
+    /* 3:04:31 */
+  },[selectedToken])
   return (
     <Wrapper>
         <Amount>
@@ -43,7 +51,7 @@ const Transfert = ({
                 </FieldName>
                 <CoinSelectList>
                     <Icon>
-                        <FaWallet />
+                        <img src={imageUrl} />
                     </Icon>
                     <CoinName>Ethereum</CoinName>
                 </CoinSelectList>
@@ -170,7 +178,7 @@ const CoinSelectList = styled.div`
 const CoinName = styled.div`
     width:90%;
     flex:1;
-    padding-left:1.7rem;
+    padding-left:0.1;
     border:none;
     background:none;
     outline:none;
