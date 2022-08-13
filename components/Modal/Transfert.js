@@ -1,11 +1,19 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import {FaWallet} from "react-icons/fa"
 
-const Transfert = () => {
+const Transfert = ({ 
+    selectedToken ,
+    setAction,
+    thirdWebTokens,
+    walletAddress}
+    ) => {
   const [amount,setAmount] = useState(); 
   const [recipient,setRecipient] = useState('');
 
+  useEffect( _ =>{
+    console.log("new",selectedToken);
+  },[])
   return (
     <Wrapper>
         <Amount>
@@ -34,9 +42,9 @@ const Transfert = () => {
                     Pay with
                 </FieldName>
                 <CoinSelectList>
-                    <icon>
+                    <Icon>
                         <FaWallet />
-                    </icon>
+                    </Icon>
                     <CoinName>Ethereum</CoinName>
                 </CoinSelectList>
             </Row>
