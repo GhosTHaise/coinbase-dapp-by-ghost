@@ -16,10 +16,16 @@ const Transfert = ({
   const [imageUrl,setImageUrl] = useState(null);
   const [activeThirdWebToken,setActiveThirdWebToken] = useState();
 
+  useEffect( _ => {
+    const activeToken = thirdWebTokens.find( token => token.address === selectedToken.contractAddress);
+    //console.log("helo",activeToken);
+    setActiveThirdWebToken(activeToken);
+  },[thirdWebTokens,selectedToken]);
+
   useEffect( _ =>{
-    console.log("new",selectedToken);
+    //console.log("new",selectedToken);
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
-    console.log(url);
+    //console.log(url);
     setImageUrl(url);
     /* 3:04:31  */
   },[selectedToken])
@@ -54,7 +60,7 @@ const Transfert = ({
                     <Icon>
                         <img src={imageUrl} />
                     </Icon>
-                    <CoinName>Ethereum</CoinName>
+                    <CoinName>{selectedToken.name}</CoinName>
                 </CoinSelectList>
             </Row>
         </TransfertForm>
