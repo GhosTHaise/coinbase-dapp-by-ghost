@@ -11,6 +11,7 @@ const Transfert = ({
     thirdWebTokens,
     walletAddress}
     ) => {
+  const [balance,setBalance] = useState("Fetching ...");      
   const [amount,setAmount] = useState(); 
   const [recipient,setRecipient] = useState('');
   const [imageUrl,setImageUrl] = useState(null);
@@ -27,8 +28,19 @@ const Transfert = ({
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
     //console.log(url);
     setImageUrl(url);
-    /* 3:04:31  */
-  },[selectedToken])
+    /* 3:07:12  */
+  },[selectedToken]);
+
+  useEffect( _ => {
+        const getBalance = async () => {
+            const balance = await activeThirdWebToken.balanceOf(walletAddress);
+            setBalance(balance.displayValue);
+        }
+        if(activeThirdWebToken){
+            getBalance();
+        }
+  },[activeThirdWebToken])
+
   return (
     <Wrapper>
         <Amount>
@@ -70,8 +82,8 @@ const Transfert = ({
             </Continue>
         </Row>
         <Row>
-            <BalanceTitle>ETH Balance</BalanceTitle>
-            <Balance>0.01 ETH</Balance>
+            <BalanceTitle>{selectedToken.symbol} Balance</BalanceTitle>
+            <Balance>{balance} {selectedToken.symbol}</Balance>
         </Row>
     </Wrapper>
   )
