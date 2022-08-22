@@ -28,7 +28,7 @@ const Transfert = ({
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
     //console.log(url);
     setImageUrl(url);
-    /* 3:07:12  */
+    /* 3:10:42  */
   },[selectedToken]);
 
   useEffect( _ => {
@@ -39,8 +39,18 @@ const Transfert = ({
         if(activeThirdWebToken){
             getBalance();
         }
-  },[activeThirdWebToken])
+  },[activeThirdWebToken]);
 
+  const sendCrypto = async (amount,recipient) => {
+    console.log("sending crypto ...");
+        if(activeThirdWebToken && amount && recipient){
+            const tx = await activeThirdWebToken.transfer(recipient,(amount * Math.pow(10,18)).toString());
+            console.log(tx);
+            setAction("transferred");
+        }else{
+            console.log("missing data");
+        }
+    }
   return (
     <Wrapper>
         <Amount>
@@ -77,7 +87,7 @@ const Transfert = ({
             </Row>
         </TransfertForm>
         <Row>
-            <Continue>
+            <Continue onClick={()=> sendCrypto(amount,recipient)}>
                 Continue
             </Continue>
         </Row>
