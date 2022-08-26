@@ -19,7 +19,8 @@ const TransfertModal = ({sanityTokens,thirdWebTokens, walletAddress}) => {
    const selectedModal = (option) => {
       switch(option){
           case "send":
-            return <Transfert selectedToken={selectedToken} 
+            return <Transfert 
+            selectedToken={selectedToken} 
             setAction={setAction}
             thirdWebTokens={thirdWebTokens}
             walletAddress={walletAddress} />

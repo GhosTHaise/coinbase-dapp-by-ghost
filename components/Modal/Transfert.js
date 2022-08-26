@@ -78,7 +78,7 @@ const Transfert = ({
                 <FieldName>
                     Pay with
                 </FieldName>
-                <CoinSelectList>
+                <CoinSelectList onClick={() => setAction("select")}>
                     <Icon>
                         <img src={imageUrl} />
                     </Icon>
