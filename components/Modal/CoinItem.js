@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 const CoinItem = ({
     token,
@@ -9,11 +9,43 @@ const CoinItem = ({
     sanityTokens,
     thirdWebTokens
 }) => {
+
+    const [balance,setBalance] = useState();
+    const [imageUrl,setImageUrl] = useState();
+
+    useState(()=>{
+        const getBalance = async() => {
+            let activeThirdWebToken;
+            thirdWebTokens.map(thirdWebToken => {
+                if(thirdWebToken.address == token.contractAdress)P
+                activeThirdWebToken = thirdWebToken;
+            });
+            const balance = await activeThirdWebToken.balanceOf(sender);
+
+            return await setBalance(balance.displayValue.split('.')[0]);
+
+        }
+    },[]);
+
   return (
-    <div>{token.name}</div>
+    <Wrapper>
+        <Main>
+            <Icon><img src='' alt='...' /></Icon>
+        </Main>
+    </Wrapper>
   )
 }
+const Wrapper = styled.div`
+    display : flex;
+    align-items : center;
+    padding : 1rem .5rem;
+    border-radius: .5rem;
+    margin-bottom : .3rem;
 
+    &:hover{
+        background-color: #0e0f14;
+    }
+`;
 
 const Main = styled.div`
     flex : 1 ;

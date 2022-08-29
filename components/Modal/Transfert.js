@@ -28,7 +28,7 @@ const Transfert = ({
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
     //console.log(url);
     setImageUrl(url);
-    /* 3:10:42  */
+    /* 3:28:15  */
   },[selectedToken]);
 
   useEffect( _ => {
@@ -127,6 +127,7 @@ const FlexInputContainer = styled.div`
         color:#3223f5;
     }
 `;
+
 const FlexInput = styled.input`
     border:none;
     background:none;
@@ -143,6 +144,11 @@ const FlexInput = styled.input`
     &::-webkit-outer-spin-button,
     ::-webkit-inner-spin-button{
         -webkit-appearence:none;
+    }
+    -moz-appearance:textfield;
+
+    &:focus {
+      -moz-appearance: number-input;
     }
 `;
 const Warning = styled.div`
