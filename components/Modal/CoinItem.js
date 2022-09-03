@@ -1,5 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
+import { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
+import { client } from '../../lib/Sanity'
+import {FaCheck} from "react-icons/fa"
+
 const CoinItem = ({
     token,
     sender,
@@ -10,8 +14,8 @@ const CoinItem = ({
     thirdWebTokens
 }) => {
 
-    const [balance,setBalance] = useState();
-    const [imageUrl,setImageUrl] = useState();
+    const [balance,setBalance] = useState("Fetching...");
+    const [imageUrl,setImageUrl] = useState("null");
 
     useState(()=>{
         const getBalance = async() => {
@@ -24,13 +28,19 @@ const CoinItem = ({
 
             return await setBalance(balance.displayValue.split('.')[0]);
 
+        };
+        const getImageUrl = async() => {
+             const imageUrl = ImageUrlBuilder(client).image(token.logo).url();
+             setImageUrl(imageUrl);
         }
+        getImageUrl();
+        getBalance();
     },[]);
 
   return (
     <Wrapper>
         <Main>
-            <Icon><img src='' alt='...' /></Icon>
+            <Icon><img src={imageUrl} alt='...' /></Icon>
         </Main>
     </Wrapper>
   )
