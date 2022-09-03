@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import {FaWallet} from "react-icons/fa"
-
 import { client } from '../../lib/Sanity'
 import ImageUrlBuilder  from '@sanity/image-url'
 
@@ -28,7 +27,7 @@ const Transfert = ({
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
     //console.log(url);
     setImageUrl(url);
-    /* 3:28:15  */
+    /* 3:35:18  */
   },[selectedToken]);
 
   useEffect( _ => {

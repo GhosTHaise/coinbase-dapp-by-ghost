@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
-import { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
+import ImageUrlBuilder  from '@sanity/image-url'
 import { client } from '../../lib/Sanity'
 import {FaCheck} from "react-icons/fa"
 
@@ -38,7 +38,9 @@ const CoinItem = ({
     },[]);
 
   return (
-    <Wrapper>
+    <Wrapper style={{
+        backgroundColor : selectedToken.name == token.name && "#141519"
+    }}>
         <Main>
             <Icon><img src={imageUrl} alt='...' /></Icon>
         </Main>
