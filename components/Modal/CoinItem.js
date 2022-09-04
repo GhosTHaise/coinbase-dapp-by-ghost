@@ -40,7 +40,12 @@ const CoinItem = ({
   return (
     <Wrapper style={{
         backgroundColor : selectedToken.name == token.name && "#141519"
-    }}>
+    }}
+    onClick={ () =>{
+        setSelectedToken(token);
+        setAction("send");
+    }}
+    >
         <Main>
             <Icon><img src={imageUrl} alt='...' /></Icon>
         </Main>
