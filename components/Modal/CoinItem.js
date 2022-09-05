@@ -58,6 +58,9 @@ const CoinItem = ({
             </NameDetails>
         </Main>
         <Balance>{balance} {token.symbol}</Balance>
+        <IsSelected>
+            {Boolean(selectedToken.contractAddress == token.contractAddress) && <FaCheck />} 
+        </IsSelected>
     </Wrapper>
   )
 }
@@ -106,7 +109,7 @@ const Symbol = styled.div`
 `;
 const Balance = styled.div``;
 
-const isSelected = styled.div`
+const IsSelected = styled.div`
     margin-left: .5rem;
     color : #3773f5;
 
