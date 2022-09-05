@@ -17,15 +17,19 @@ const CoinItem = ({
     const [balance,setBalance] = useState("Fetching...");
     const [imageUrl,setImageUrl] = useState("null");
 
-    useState(()=>{
+    useEffect(()=>{
         const getBalance = async() => {
+            
             let activeThirdWebToken;
-            thirdWebTokens.map(thirdWebToken => {
-                if(thirdWebToken.address == token.contractAdress)P
+            console.log(thirdWebTokens)
+            thirdWebTokens.map( thirdWebToken => {
+                if(thirdWebToken.address === token.contractAddress){
                 activeThirdWebToken = thirdWebToken;
-            });
+            }
+            })
             const balance = await activeThirdWebToken.balanceOf(sender);
 
+            console.log(balance);
             return await setBalance(balance.displayValue.split('.')[0]);
 
         };
@@ -48,7 +52,12 @@ const CoinItem = ({
     >
         <Main>
             <Icon><img src={imageUrl} alt='...' /></Icon>
+            <NameDetails>
+                <Name>{token.name}</Name>
+                <Symbol>{token.symbol}</Symbol>
+            </NameDetails>
         </Main>
+        <Balance>{balance} {token.symbol}</Balance>
     </Wrapper>
   )
 }
@@ -91,7 +100,10 @@ const Name = styled.div`
     font-size : 1.1rem;
     margin-bottom:.2rem;
 `;
-
+const Symbol = styled.div`
+    color: #888f9b;
+    font-size: .8rem;
+`;
 const Balance = styled.div``;
 
 const isSelected = styled.div`

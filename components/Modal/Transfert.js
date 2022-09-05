@@ -55,7 +55,7 @@ const Transfert = ({
         <Amount>
             <FlexInputContainer>
                 <FlexInput onChange={ e => setAmount(e.target.value)} placeholder='0' type="number" value={amount} />
-                <span>ETH</span>
+                <span>{selectedToken.symbol}</span>
             </FlexInputContainer>
             <Warning style={{color: amount && "#0a0b0d"}}>
                 Amount is a requred field 
