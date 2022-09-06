@@ -35,6 +35,10 @@ const TransfertModal = ({sanityTokens,thirdWebTokens, walletAddress}) => {
                   thirdWebTokens={thirdWebTokens}
                   walletAddress={walletAddress}
              />
+          case "transferring":
+              return <h2>Transferring crypto ...</h2>
+          case "transferred":
+               return <h2 style={{color : "green"}}>Transferred ...</h2>  
           default:
             return <h2>send</h2>    
       }
