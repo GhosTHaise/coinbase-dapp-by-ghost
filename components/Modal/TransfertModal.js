@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Transfert from './Transfert';
 import CoinSelector from './CoinSelector';
 import  {TailSpin} from "react-loader-spinner"
-
+import Receive from './Receive';
 const TransfertModal = ({sanityTokens,thirdWebTokens, walletAddress}) => {
   const [action,setAction] = useState('send');
   const [selectedToken,setSelectedToken] = useState(sanityTokens[0])  
@@ -26,7 +26,11 @@ const TransfertModal = ({sanityTokens,thirdWebTokens, walletAddress}) => {
             thirdWebTokens={thirdWebTokens}
             walletAddress={walletAddress} />
           case "receive":
-            return <h2>receive</h2>
+            return <Receive
+            selectedToken={selectedToken} 
+            setAction={setAction}
+            walletAddress={walletAddress} 
+            />
           case "select":
              return <CoinSelector
                   setAction={setAction}
@@ -48,7 +52,7 @@ const TransfertModal = ({sanityTokens,thirdWebTokens, walletAddress}) => {
               }}>
                         Transfer in progress ...
                         <div 
-                            style={{height:".5rem"}}>
+                            style={{height:"1rem"}}>
                         </div>
                         <TailSpin 
                             height={100}

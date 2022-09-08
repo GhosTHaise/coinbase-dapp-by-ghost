@@ -27,7 +27,7 @@ const Transfert = ({
     const url = ImageUrlBuilder(client).image(selectedToken.logo).url();
     //console.log(url);
     setImageUrl(url);
-    /* 3:44:18  */
+    /* 3:52:10  */
   },[selectedToken]);
 
   useEffect( _ => {
